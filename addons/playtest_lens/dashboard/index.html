@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playtest Lens</title>
+<meta name="description" content="Local-first playtest analytics for Godot: heatmaps, progression and automatic insights.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2313202f'/%3E%3Ccircle cx='13.5' cy='13.5' r='7' fill='%23eb6834'/%3E%3Ccircle cx='13.5' cy='13.5' r='6.5' fill='none' stroke='%23f0efec' stroke-width='2.4'/%3E%3Cpath d='M18.5 18.5l6 6' stroke='%23f0efec' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<!--PL:STYLES--><link rel="stylesheet" href="styles.css"><!--/PL:STYLES-->
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="Playtest Lens home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" class="brand-bg"/><circle cx="13.5" cy="13.5" r="7" class="brand-heat"/><circle cx="13.5" cy="13.5" r="6.5" class="brand-ring"/><path d="M18.5 18.5l6 6" class="brand-ring"/></svg>
+      <span>Playtest Lens</span>
+    </a>
+    <nav id="nav" aria-label="Views"></nav>
+    <div class="sidebar-foot">
+      <p>Local-first. Your playtest data never leaves this computer unless you use Ask Claude.</p>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div class="title-block">
+        <h1 id="gameTitle">Playtest Lens</h1>
+        <p id="gameMeta" class="muted">Local playtest analytics for Godot</p>
+      </div>
+      <div id="filters" class="filters"></div>
+      <div class="actions">
+        <div class="menu-wrap">
+          <button class="btn" data-act="menu" aria-haspopup="true" aria-expanded="false" aria-controls="addMenu">Add data</button>
+          <div class="menu" id="addMenu" hidden>
+            <button data-act="files">Choose files…</button>
+            <button data-act="folder">Choose a folder…</button>
+            <button data-act="sample">Load sample data</button>
+            <hr>
+            <button data-act="clear">Remove loaded data</button>
+          </div>
+        </div>
+        <div class="menu-wrap needs-data">
+          <button class="btn" data-act="menu" aria-haspopup="true" aria-expanded="false" aria-controls="exportMenu">Export</button>
+          <div class="menu" id="exportMenu" hidden>
+            <button data-act="copy-md">Copy insights as Markdown</button>
+            <button data-act="download-md">Download insights (.md)</button>
+            <button data-act="print">Print or save as PDF</button>
+          </div>
+        </div>
+        <button class="icon-btn" id="themeBtn" aria-label="Switch light or dark theme" data-tip="Switch light or dark theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+        </button>
+      </div>
+    </header>
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+</div>
+<div id="tooltip" class="tooltip" role="tooltip"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div class="drop-overlay" aria-hidden="true"><div>Drop playtest files, folders or zips</div></div>
+<input type="file" id="fileInput" multiple accept=".jsonl,.zip,.png,.json" hidden>
+<input type="file" id="folderInput" webkitdirectory multiple hidden>
+<!--PL:BUNDLE-->
+<!--PL:SCRIPTS-->
+<script src="zip.js"></script>
+<script src="data.js"></script>
+<script src="analysis.js"></script>
+<script src="insights.js"></script>
+<script src="charts.js"></script>
+<script src="heatmap.js"></script>
+<script src="ai.js"></script>
+<script src="app.js"></script>
+<!--/PL:SCRIPTS-->
+</body>
+</html>

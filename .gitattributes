@@ -1,0 +1,14 @@
+# Normalize line endings for all text files.
+* text=auto eol=lf
+
+# Only addons/ is installed from the Godot Asset Library.
+/demo export-ignore
+/tools export-ignore
+/docs export-ignore
+/project.godot export-ignore
+/icon.svg export-ignore
+/icon.svg.import export-ignore
+/README.md export-ignore
+/LICENSE export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
